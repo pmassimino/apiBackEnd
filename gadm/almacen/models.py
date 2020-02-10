@@ -4,17 +4,17 @@ from django.db import models
 class Familia(models.Model):
       nombre = models.CharField(max_length=100)
 def __str__(self):
-        return self.nombre
+      return self.nombre
 def __unicode__(self):
-        return self.nombre
+      return self.nombre
 
 class CondIvaOp(models.Model):
       nombre = models.CharField(max_length=100)
       codigo = models.CharField(max_length=2)
 def __unicode__(self):
-        return self.nombre
+      return self.nombre
 def __str__(self):
-        return self.nombre
+      return self.nombre
 
 class Articulo(models.Model):
     codigo = models.CharField(max_length=20)
