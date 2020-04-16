@@ -4,13 +4,19 @@ from rest_framework import generics
 from django.http import HttpResponse, JsonResponse
 from rest_framework import viewsets
 from .models import Articulo,Familia,CondIvaOp
-from .serializers import ArticuloSerializer,FamiliaSerializer
+from .serializers import ArticuloSerializer,FamiliaSerializer,CondIvaOpSerializer
 from rest_framework import authentication, permissions,filters
 
 
 class FamiliaViewSet(viewsets.ModelViewSet):
     queryset = Familia.objects.all()
     serializer_class = FamiliaSerializer
+    authentication_classes = [authentication.TokenAuthentication]
+    permission_classes = [permissions.IsAdminUser]
+
+class CondIvaOpViewSet(viewsets.ModelViewSet):
+    queryset = CondIvaOp.objects.all()
+    serializer_class = CondIvaOpSerializer
     authentication_classes = [authentication.TokenAuthentication]
     permission_classes = [permissions.IsAdminUser]
 

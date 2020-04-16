@@ -19,11 +19,11 @@ def __str__(self):
 class Articulo(models.Model):
     codigo = models.CharField(max_length=20)
     nombre = models.CharField(max_length=100)
-    familia= models.ForeignKey(Familia, on_delete=models.CASCADE)
+    familia= models.ForeignKey(Familia, null=True,on_delete=models.CASCADE)
     costoVenta = models.DecimalField(max_digits=18, decimal_places=4) 
     impuestoVenta =  models.DecimalField(max_digits=18, decimal_places=4) 
     alicuotaIva =  models.DecimalField(max_digits=5, decimal_places=2) 
-    condIva = models.ForeignKey(CondIvaOp, on_delete=models.CASCADE)
+    condIva = models.ForeignKey(CondIvaOp,null=True, on_delete=models.CASCADE)
     margenVenta = models.DecimalField(max_digits=18, decimal_places=4) 
     precioVenta = models.DecimalField(max_digits=18, decimal_places=4) 
     precioVentaFinal = models.DecimalField(max_digits=18, decimal_places=4) 
